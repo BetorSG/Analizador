@@ -6,6 +6,7 @@ const int LedPinVerde = 8;
 const int LedPinBlanco = 9;
 float distancia;
 long tiempo;
+unsigned long start = millis()+60000UL; // cargo a start con el valor +60mil milisegundos
 
 void setup() {  
   pinMode(LedPinVerde, OUTPUT);
@@ -41,42 +42,47 @@ void loop() {
   /*lcd.blink(); // Displayamos el Blinking del Cursor sobre el LCD
   delay(3000);
   lcd.noBlink();*/ // Apagamos el Blinking del Cursor sobre el LCD
-  
-  lcd.print("Analizando..."); 
-  delay(1000);   
-  lcd.clear();
-  delay(1000);  
+while (millis() > start) {
+   // lo que este aqui dentro tiene 60 segundos para ejecutarse
+   // o puedes salir con break
+       
+    lcd.print("Analizando..."); 
+    delay(1000);   
+    lcd.clear();
+    delay(1000);  
+    
+    
+    digitalWrite(TriggerPin, HIGH);  //se envía un pulso para activar el sensor
+    delayMicroseconds(10);
+    digitalWrite(TriggerPin, LOW);
 
-   
-  digitalWrite(TriggerPin, HIGH);  //se envía un pulso para activar el sensor
-  delayMicroseconds(10);
-  digitalWrite(TriggerPin, LOW);
-
-  // medimos el pulso de respuesta
-  tiempo = (pulseIn(EchoPin, HIGH)/2); 
-  
-  // dividido por 2 por que es el 
-  // tiempo que el sonido tarda
-  // en ir y en volver
-  // ahora calcularemos la distancia en cm
-  // sabiendo que el espacio es igual a la velocidad por el tiempo
-  // y que la velocidad del sonido es de 343m/s y que el tiempo lo 
-  // tenemos en millonesimas de segundo
-  
-  distancia = float(tiempo * 0.0343);
-  Serial.print("Distancia: "); // imprime la distancia en el Monitor Serie
-  Serial.println(distancia);
-  
-  if (distancia >= 50) {
-    digitalWrite(LedPinVerde , HIGH);
-    digitalWrite(LedPinBlanco , LOW);
-  }
-  else if(distancia <= 49){
-    digitalWrite(LedPinVerde , LOW);
-    digitalWrite(LedPinBlanco , HIGH);
+    // medimos el pulso de respuesta
+    tiempo = (pulseIn(EchoPin, HIGH)/2); 
+    
+    // dividido por 2 por que es el 
+    // tiempo que el sonido tarda
+    // en ir y en volver
+    // ahora calcularemos la distancia en cm
+    // sabiendo que el espacio es igual a la velocidad por el tiempo
+    // y que la velocidad del sonido es de 343m/s y que el tiempo lo 
+    // tenemos en millonesimas de segundo
+    
+    distancia = float(tiempo * 0.0343);
+    Serial.print("Distancia: "); // imprime la distancia en el Monitor Serie
+    Serial.println(distancia);
         
-  }  
-  
-  delay(500);
+    }
+    
+    if (distancia >= 50) {
+      digitalWrite(LedPinVerde , HIGH);
+      digitalWrite(LedPinBlanco , LOW);
+    }
+    else if(distancia <= 49){
+      digitalWrite(LedPinVerde , LOW);
+      digitalWrite(LedPinBlanco , HIGH);
+          
+    }  
+    
+    delay(500);
 
  }
