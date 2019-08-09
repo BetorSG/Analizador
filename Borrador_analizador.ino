@@ -82,7 +82,8 @@ while (millis() > start) {
       digitalWrite(LedPinBlanco , HIGH);
           
     }  
-    
+    //Si el led parapadea entre rojo y azul significa que el dispositivo esta tomando los datos
+    //Si el led se pone en verde significa que el dispositvo termino de mostrar la lectura 
     delay(500);
 
  }
