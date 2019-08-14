@@ -15,7 +15,7 @@ void setup() {
   pinMode(EchoPin, INPUT);
     
   lcd.begin(16,2); // Inicializa la interface para el LCD screen, and determina sus dimensiones (ancho y alto) del display
-  lcd.print("   Bienvenido");
+  lcd.print("   BIENVENIDO");
   delay(3000);
   lcd.clear();
   delay(3000);
@@ -84,6 +84,7 @@ while (millis() > start) {
     }  
     //Si el led parapadea entre rojo y azul significa que el dispositivo esta tomando los datos
     //Si el led se pone en verde significa que el dispositvo termino de mostrar la lectura 
+    //Volver a hacer el circuito donde solo enciendan los leds y en la pantalla se muestre "Analizando"
     delay(500);
 
  }
