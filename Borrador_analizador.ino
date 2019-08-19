@@ -84,7 +84,6 @@ while (millis() > start) {
     }  
     //Si el led parapadea entre rojo y azul significa que el dispositivo esta tomando los datos
     //Si el led se pone en verde significa que el dispositvo termino de mostrar la lectura 
-    //Volver a hacer el circuito donde solo enciendan los leds y en la pantalla se muestre "Analizando"
     //Mejor mostrar un contador hasta 60 acompañados de los leds
     delay(500);
 
