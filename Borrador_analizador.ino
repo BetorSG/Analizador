@@ -87,4 +87,41 @@ while (millis() > start) {
     //Mejor mostrar un contador hasta 60 acompañados de los leds
     delay(500);
 
+    /*//PRUEBA CON ARDUINO & LABVIEW
+
+int bomba = 5;//Pin digital para la electrobomba
+int val = 6;//Pin digital para la electroválvula
+
+void setup() {
+  Serial.begin(9600);
+
+  pinMode(bomba, OUTPUT);//Define como salida el pin de la bomba
+  pinMode(val, OUTPUT);//Define como salida el pin de la váluvla
+
+}
+
+void loop() {
+  if(Serial.available()){ //Verifica la comunicación con Labview
+    int dato = Serial.read();//Lee los datos enviados por Labview
+
+    //Luego envia los datos a la placa arduino
+    if((dato == 'E')||(dato == 'F')){
+      digitalWrite(bomba,HIGH);//Enciende la electrobomba
+      delay(5);      
+    }
+    if((dato == 'G')||(dato == 'H')){
+      digitalWrite(bomba,LOW);//Apaga la electrobomba
+      delay(5);      
+    }    
+    if((dato == 'E')||(dato == 'G')){
+      digitalWrite(val,HIGH);//Enciende la electroválvula
+      delay(5);      
+    }
+    if((dato == 'F')||(dato == 'H')){
+      digitalWrite(val,LOW);//Apaga la electroválvula
+      delay(5);      
+    }        
+  }
+}*/
+
  }
