@@ -122,6 +122,7 @@ void loop() {
       delay(5);      
     }        
   }
+  //NO PERDER DE VISTA LA INTEGRACIÓN DE LABVIEW CON ARDUINO
 }*/
 
  }
