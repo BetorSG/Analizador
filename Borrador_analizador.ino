@@ -123,6 +123,7 @@ void loop() {
     }        
   }
   //NO PERDER DE VISTA LA INTEGRACIÓN DE LABVIEW CON ARDUINO
+  //Hacer el esquema de conexiones con display 7 segmentos
 }*/
 
  }
